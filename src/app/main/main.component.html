@@ -1,0 +1,7 @@
+<div>
+    <app-card *ngFor="let city of cityDtos" 
+    [cardTitle]="city.name" 
+    [properties]="cityProperties" 
+    [data]="city" 
+    [icon]="icon"></app-card>
+</div>

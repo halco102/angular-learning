@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SearchService } from '../interface/SearchService';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,24 +14,17 @@ import { SearchService } from '../interface/SearchService';
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css'
 })
-export class SearchBarComponent<T> {
+export class SearchBarComponent {
+
+  constructor(private searchEvent : SharedService) {}
   
   @Input({required: true}) 
   public placeholderText = '';
 
-  @Input({required: true})
-  public searchService! : SearchService<T>;
-
   public inputString: string = "";
 
-  @Output()
-  public emitDtos = new EventEmitter<T>();
-
-  constructor() {}
-
   searchClickEvent() : void {
-    console.log("Child generic method", this.inputString)
-    const searchResults = this.searchService.searchResult(this.inputString);
-    this.emitDtos.emit(searchResults);
+    console.log("Emit ", this.inputString);
+    this.searchEvent.emitInputString(this.inputString);
   }
 }

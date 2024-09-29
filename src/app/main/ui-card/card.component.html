@@ -1,17 +1,14 @@
-<div id="weather-content">
+<div id="card-content">
     <mat-card class="card" appearance="outlined">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{obj.name}}</mat-card-title>
+          <mat-card-title>{{cardTitle}}</mat-card-title>
           <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{obj.weather[0].icon}}" alt="">
         <mat-card-content>
           <div class="card_main">
             <div id="left">
-              <p>Temperature {{obj.main.temp}}</p>
-              <p>Temperature max {{obj.main.temp_max}}</p>
-              <p>Temperature min {{obj.main.temp_min}}</p>
+             <p *ngFor="let prop of properties">{{prop}} : {{data[prop]}}</p>
             </div>
             <div id="right">
                 <div id="img">
