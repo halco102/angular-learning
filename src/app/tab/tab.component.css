@@ -1,0 +1,34 @@
+.main-tab{
+    display: flex;
+    justify-content: space-between;
+}
+
+.angular-logo{
+    width: 100px;
+    position: relative;
+    margin: 0 1rem;
+}
+
+.logo-img{
+    margin: auto 0;
+}
+
+.parent-tab{
+    background-color: rgb(108, 133, 185);
+}
+
+.tab-component{
+    width: 35rem;
+    max-width: 35rem;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+::ng-deep .mdc-switch__icons{
+    display:none!important;
+  }
+
+.tab-text {
+    margin: auto 0 ;
+}

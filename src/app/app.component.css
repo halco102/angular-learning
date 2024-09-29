@@ -1,0 +1,6 @@
+.main{
+    background-color: rgb(137, 137, 212);
+    display: grid;
+    justify-content: center;
+    padding-top: 2rem;
+}

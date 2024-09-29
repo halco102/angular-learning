@@ -1,0 +1,27 @@
+.icon-display {
+    transform: scale(0.8);
+ }
+
+ .search-button{
+    height: fit-content;
+    margin: 0;
+    border: none;
+ }
+
+ .search-bar {
+    max-height: 33px;
+    display: flex;
+    background-color: #ddd;
+    justify-content: center;
+ }
+
+ .search-input{
+    border: none;
+    height: 29px;
+    width: 100%;
+    padding-left: 1rem;
+ }
+
+.search-input:focus {
+    outline: none;
+}

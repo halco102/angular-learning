@@ -1,0 +1,11 @@
+.card{
+    max-width: 35rem;
+    max-height: fit-content;
+    margin-top: 2rem;
+}
+
+.card_main {
+    display: flex;
+    gap: 2rem;
+}
+

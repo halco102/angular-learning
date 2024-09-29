@@ -1,0 +1,43 @@
+<nav>
+  <app-tab></app-tab>
+</nav>
+
+<main class="main">
+  <app-search-bar [searchService]="citySearchService" 
+  placeholderText="Search weather..."
+  (emitDtos)="updateCityDtos($event)"></app-search-bar>
+
+  <div *ngIf="cityDtos.length > 0" style="padding: 10px;">
+    <div *ngFor="let city of cityDtos" style="margin: 1rem 0;">
+      <mat-card appearance="outlined" (click)="selectedCityByLonAndLat(city.lon, city.lat)">
+        <mat-card-content>
+          <div style="display: grid;">
+            <div style="display: flex; gap: 1rem;">
+              <p>{{city.country}}</p>
+              <p>{{city.name}}</p>
+            </div>
+            <div>
+              <p>{{city.state}}</p>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+              <p>{{city.lat}}</p>
+              <p>{{city.lon}}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="forecast.city != null">
+    {{forecast.city}}
+    {{forecast.message}}
+    <p *ngFor="let list of forecast.list">
+      {{list.clouds.all}}
+      {{list.dt_text}}
+    </p>
+
+  </div>
+
+  <app-weather></app-weather>
+</main>

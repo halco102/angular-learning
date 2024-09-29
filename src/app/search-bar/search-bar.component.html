@@ -1,0 +1,4 @@
+<div class="search-bar">
+    <button class="search-button" (click)="searchClickEvent()"><mat-icon class="icon-display" aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon></button>
+    <input type="text" [(ngModel)]="inputString" (keyup.enter)="searchClickEvent()" placeholder="{{placeholderText}}" class="search-input"/>
+</div>
