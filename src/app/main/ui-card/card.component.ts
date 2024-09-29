@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http'; 
@@ -27,4 +27,17 @@ export class CardComponent<T>{
 
   @Input()
   icon : string = "";
+
+  @Input()
+  emitClickEvent : boolean = false;
+
+  @Output()
+  outputData = new EventEmitter<T>();
+
+  public onClick() {
+    console.log("on click", this.emitClickEvent)
+    if (this.emitClickEvent){
+      this.outputData.emit(this.data);
+    }
+  }
 }

@@ -6,12 +6,12 @@ import { WeatherService } from '../service/weather.service';
 import { CardComponent } from './ui-card/card.component';
 import { WeatherData } from '../interface/weather-data';
 import { SharedService } from '../service/shared.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CardComponent, NgFor],
+  imports: [CardComponent, NgFor, NgIf],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
@@ -34,6 +34,8 @@ export class MainComponent implements OnInit{
 
   public forecast : Forecast = ({} as any) as Forecast; // to lazy to init the real way
 
+  public selectedCity!: City;
+
   weatherData : WeatherData = ({} as any) as WeatherData;
   icon:string = '';
 
@@ -51,6 +53,7 @@ export class MainComponent implements OnInit{
   }
 
   public selectedCityByLonAndLat(lon : number, lat : number) : void {
+    console.log("Selected", lat, lon)
     this.weatherService.getWeatherInfoByLonAndLat(lon, lat).subscribe((response) => {
       console.log("Res ", response);
       this.forecast = response;
@@ -60,4 +63,10 @@ export class MainComponent implements OnInit{
   public protCity : City = ({} as City) as City;
   public cityProperties: (keyof typeof this.protCity)[] = ['name', 'country', 'state'];
 
+  //emit
+  public handleSelectedCityEmit(city : City) {
+    console.log("Selected city", city.lat, city.lon)
+    this.selectedCity = city;
+    this.cityDtos = [];
+  }
 }
