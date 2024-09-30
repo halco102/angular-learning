@@ -25,6 +25,6 @@ export class SearchBarComponent {
 
   searchClickEvent() : void {
     console.log("Emit ", this.inputString);
-    this.searchEvent.emitInputString(this.inputString);
+    this.searchEvent.emitInputString("searchEmit", this.inputString);
   }
 }

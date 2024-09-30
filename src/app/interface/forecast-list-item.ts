@@ -7,7 +7,7 @@ import { Wind } from "./wind";
 
 export interface ForecastListItem {
     dt: number;
-    mainForecast: MainForecast;
+    main: MainForecast;
     weather: Weather[];
     clouds: Clouds;
     wind: Wind;

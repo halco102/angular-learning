@@ -7,4 +7,4 @@ export interface Forecast {
     cnt: number;
     list: ForecastListItem[];
     city: City;
-}
+} 

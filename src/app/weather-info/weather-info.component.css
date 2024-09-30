@@ -1,0 +1,28 @@
+.weather-info-main{
+    margin:3rem;
+    padding: 5rem;
+    display: grid;
+    justify-content: center;
+}
+
+.current-city-and-time{
+    display: grid;
+}
+
+.current-time-img-temperature{
+    display: flex;
+    gap: 1rem;
+}
+
+.basic-weather-info{
+    margin: 0 1rem 1rem 0;
+}
+
+.satelite-img{
+    max-width: 50rem;
+    max-height: 40rem;
+}
+
+.margin-for-components {
+    margin-right: 5rem;
+}

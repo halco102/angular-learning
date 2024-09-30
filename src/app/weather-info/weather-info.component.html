@@ -1,0 +1,57 @@
+<div class="weather-info-main">
+    <div style="display: flex;">
+        <div class="margin-for-components ">
+            <!-- ime grada velikim slovima-->
+            <div id="current-city-and-time">
+                <span>{{currentDateTime}}</span>
+                <h2>{{forecast.city.name}}, {{forecast.city.country}}</h2>
+            </div>
+            <!-- da pokazuje izlazak/zalazak sunca-->
+            <div class="basic-weather-info">
+                <div class="current-time-img-temperature">
+                    <svg data-v-3e6e9f12="" width="50px" height="50px" viewBox="0 0 148 148" class="owm-weather-icon">
+                        <path
+                            d="M110.117 74c0 19.947-16.17 36.117-36.117 36.117-19.947 0-36.117-16.17-36.117-36.117 0-19.948 16.17-36.117 36.117-36.117 19.947 0 36.117 16.169 36.117 36.117"
+                            fill="#3b3c40"></path>
+                    </svg>
+                    <span style="margin:auto">{{forecast.list[0].main.temp}}</span>
+                </div>
+                <div>
+                    <div style="display: flex;">
+                        <p> </p>
+                        <p>Clear sky </p>
+                        <p>Light air </p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>brzina vjetra</li>
+                            <li>Humidity</li>
+                            <li>Visibility</li>
+                            <li>Pressure</li>
+                            <li>Dew point</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="satelite-img-container" class="margin-for-components">
+            <img class="satelite-img" src="https://staticmapmaker.com/img/google-placeholder.png" />
+        </div>
+
+
+        <!-- iza te slike -->
+        <div  style="margin: auto;">
+
+            <div>
+                <p>Izlazak</p>
+                <p>Zalazak</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        <p>hourly forecast</p>
+    </div>
+
+</div>

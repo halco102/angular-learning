@@ -2,18 +2,28 @@
 
     <div>
 
-        @if(cityDtos.length > 0) {
-        <div>
-            <app-card *ngFor="let city of cityDtos"
-                (click)="selectedCityByLonAndLat(selectedCity.lat, selectedCity.lon)"
-                (outputData)="handleSelectedCityEmit($event)" [cardTitle]="city.name" [properties]="cityProperties"
-                [data]="city" [icon]="icon" [emitClickEvent]="true"></app-card>
+        <div style="display: grid; justify-content: center;">
+
+            <app-search-bar placeholderText="Search weather..."></app-search-bar>
+            @if(cityDtos.length > 0) {
+            <div>
+                <app-card *ngFor="let city of cityDtos" (outputData)="handleSelectedCityEmit($event)"
+                    [cardTitle]="city.name" [properties]="cityProperties" [data]="city" [icon]="icon"
+                    [emitClickEvent]="true"></app-card>
+            </div>
+            }@else if (selectedCity !== undefined){
+            <div>
+                <app-card (click)="selectedCityByLonAndLat(selectedCity.lat, selectedCity.lon)"
+                    (outputData)="handleSelectedCityEmit($event)" [cardTitle]="selectedCity.name"
+                    [properties]="cityProperties" [data]="selectedCity" [icon]="icon"
+                    [emitClickEvent]="false"></app-card>
+            </div>
+            }
         </div>
-        }@else if (selectedCity !== undefined){
+
+        @if(showForecast) {
         <div>
-            <app-card
-            (outputData)="handleSelectedCityEmit($event)" [cardTitle]="selectedCity.name" [properties]="cityProperties"
-            [data]="selectedCity" [icon]="icon" [emitClickEvent]="false"></app-card>
+            <app-weather-info></app-weather-info>
         </div>
         }
 
